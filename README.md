@@ -1,9 +1,9 @@
-RNAloc
+RNAlamp
 =======================================
 
 Introduction
 ------------
-**RNAloc** is a software use to explore RNA localization in subcellar using spatial transcriptome data.
+**RNAlamp** is a software use to explore RNA localization in subcellar using spatial transcriptome data.
 
 Require：
 
