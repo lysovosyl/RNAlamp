@@ -16,9 +16,10 @@ tqdm
 Install
 ------------
 ```
-git clone https://github.com/lysovosyl/RNAloc.git
-cd RNAloc
-conda create -n RNAloc python==3.8
+git clone https://github.com/lysovosyl/RNAlamp.git
+cd RNAlamp
+conda create -n RNAlamp python==3.8
+conda activate RNAlamp
 pip install numpy pickle tqdm
 ```
 
@@ -29,22 +30,17 @@ L-score
 -----------------
 Introduction
 -----------------
-L-score is a score be used to explore whether a gene locate in nucleus or cytoplasm
+L-score is a score be used to explore whether a gene locate in nucleus or cytoplasm, to calculate this score, you should use Mouse_brain_Adult_GEM_CellBin.tsv as input
 
 Step by step
 -----------------
 
 ```
-python ./GeneLocation.py -i ./data/Mouse_brain_Adult_GEM_CellBin.tsv -s ./result/Mouse_brain_Adult_GEM_CellBin.GeneLocation.pickle
+python ./RNAlamp_matrix.py -i ./data/Mouse_brain_Adult_GEM_CellBin.tsv -s ./result/Mouse_brain_Adult_GEM_CellBin
 ```
+
 ```
-python ./CellCenter.py -i ./result/Mouse_brain_Adult_GEM_CellBin.GeneLocation.pickle -s ./result/Mouse_brain_Adult_GEM_CellBin.CellCenter.pickle
-```
-```
-python ./GeneDistanceToCenter.py -ic ./result/Mouse_brain_Adult_GEM_CellBin.CellCenter.pickle -ig ./result/Mouse_brain_Adult_GEM_CellBin.GeneLocation.pickle -s ./result/Mouse_brain_Adult_GEM_CellBin.GeneDistanceToCenter.pickle
-```
-```
-python ./Lscore.py -i ./result/Mouse_brain_Adult_GEM_CellBin.GeneDistanceToCenter.pickle -s ./result/Mouse_brain_Adult_GEM_CellBin.Lscore.tsv
+python ./Lscore.py -i ./result/Mouse_brain_Adult_GEM_CellBin/GeneDistance.pickle -s ./result/Mouse_brain_Adult_GEM_CellBin/Lscore.tsv
 ```
 
 
@@ -53,22 +49,17 @@ CL-score
 -----------------
 Introduction
 -----------------
-CL-score is a score be used to explore whether a pair gene has colocalization relation.
+CL-score is a score be used to explore whether a pair gene has colocalization relation, to calculate this score, you should use Mouse_brain_Adult_GEM_CellBin_with_background.tsv as input
 
 Step by step
 -----------------
 
 ```
-python ./GeneLocation.py -i ./data/Mouse_brain_Adult_GEM_CellBin_with_background.tsv -s ./result/Mouse_brain_Adult_GEM_CellBin_with_background.GeneLocation.pickle
+python ./RNAlamp_matrix.py -i ./data/Mouse_brain_Adult_GEM_CellBin_with_background.tsv -s ./result/Mouse_brain_Adult_GEM_CellBin_with_background
 ```
+
 ```
-python ./CoordinateMatrix.py -i ./result/Mouse_brain_Adult_GEM_CellBin_with_background.GeneLocation.pickle -s ./result/Mouse_brain_Adult_GEM_CellBin_with_background.CoordinateMatrix.pickle
-```
-```
-python ./GeneColocation.py -ic ./result/Mouse_brain_Adult_GEM_CellBin_with_background.CoordinateMatrix.pickle -ig ./result/Mouse_brain_Adult_GEM_CellBin_with_background.GeneLocation.pickle -s ./result/Mouse_brain_Adult_GEM_CellBin_with_background.GeneColocation.pickle
-```
-```
-python ./Lscore.py -igl ./result/Mouse_brain_Adult_GEM_CellBin_with_background.GeneLocation.pickle -icm ./result/Mouse_brain_Adult_GEM_CellBin_with_background.CoordinateMatrix.pickle -igc ./result/Mouse_brain_Adult_GEM_CellBin_with_background.GeneColocation.pickle -s ./result/Mouse_brain_Adult_GEM_CellBin_with_background.Clscore.tsv
+python ./CLscore.py -igl ./result/Mouse_brain_Adult_GEM_CellBin_with_background/GeneLocation.pickle -icm ./result/Mouse_brain_Adult_GEM_CellBin_with_background/CoordinateMatrix.pickle -igc ./result/Mouse_brain_Adult_GEM_CellBin_with_background/GeneColocation.pickle -s ./result/Mouse_brain_Adult_GEM_CellBin_with_background/CLscore.tsv
 ```
 
 
