@@ -25,7 +25,7 @@ pip install numpy pickle tqdm
 
 Usage
 ------------
-Before to use this software, make sure you have prepered a suitable data file(tsv format), an example data can be downloaded from [https://xxxx](https://db.cngb.org/search/project/CNP0001543/)
+Before to use this software, make sure you have prepered a suitable data file(tsv format), an example data can be downloaded from https://db.cngb.org/search/project/CNP0001543/
 L-score
 -----------------
 Introduction
