@@ -36,17 +36,19 @@ with open(input_path, 'rb') as file:
 
 #%%
 logger.info('Data Processing')
-def gen_loac(data,a,b,c,d):
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+def gen_loac(data,mean,std):
     avg = np.average(data)
-    var = np.var(data)
-    p = 1/(1+math.exp(-(c*(a*avg+b)+d*var)))
-    return p
+    p2 = (avg-mean)/std*5
+    p2 = sigmoid(p2)
+    return p2
 
 f = open(save_path,'w')
 writer = csv.writer(f,delimiter='\t')
 writer.writerow(['Gene','L-score'])
 for gene in tqdm(gene_distance):
     if len(gene_distance[gene]) > 10:
-        p = gen_loac(gene_distance[gene],-0.3937,4.2381,4.0053, 0.0551)
+        p = gen_loac(gene_distance[gene],12.591158,6.124182)
         writer.writerow([gene,p])
 f.close()
