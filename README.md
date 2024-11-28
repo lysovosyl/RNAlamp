@@ -1,4 +1,4 @@
-# RNAlamp
+RNAlamp
 =======================================
 
 Analyzing RNAs with a lamp in cells.
@@ -12,6 +12,7 @@ Analyzing RNAs with a lamp in cells.
 - [L-score](#L-score)
 - [CL-score](#CL-score)
 - [Contributors](#Contributors)
+- [Citation](#Citation)
 - [License](#License)
 
 
@@ -127,15 +128,15 @@ Cr2             Mtr            73             1014         1                  1 
 Cr2             Rnf19a         73             2649         1                  1                  0.008225106747420765
 ```
 
-## Maintainer
-
-[@Yusen Lin](https://github.com/lysovosyl)
-
-
 ### Contributors
 
 [Jiajian Zhou](https://github.com/zhoujj2013) and [Yusen Lin](https://github.com/lysovosyl) designed this project. Yusen Lin implemented the L-score and CL-score calculation.
 
-## License
+
+### Citation
+
+J.L., Y.L. et al. Profiling RNA subcellular localization and RNA-RNA colocalization network using spatial single-cell RNA sequencing.
+
+### License
 
 [MIT](LICENSE) © Yusen Lin
